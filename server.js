@@ -4,8 +4,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const TELEGRAM_BOT_TOKEN = '8971908039:AAHQIDpiCSVLmgH9m1OCR3x7xJhU7rOqZG8';
-const CHAT_ID = '7971654451';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
+const CHAT_ID = process.env.CHAT_ID || '';
 
 app.post('/token', async (req, res) => {
     const token = req.body.token || req.query.token || 'no token';
